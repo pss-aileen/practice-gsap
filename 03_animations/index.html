@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>target - const , querySelector, getElementById</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      min-height: 100vh;
+      justify-content: center;
+      flex-direction: column;
+      gap: 16px;
+      margin: 32px 0;
+    }
+
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      width: 100px;
+      height: 100px;
+      background: pink;
+    }
+
+    div:nth-child(odd) {
+      background: skyblue;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="animation-x">x</div>
+  <div class="animation-y">y</div>
+  <div class="animation-xPercent">xPercent</div>
+  <div class="animation-yPercent">yPercent</div>
+  <div class="animation-scale">scale</div>
+  <div class="animation-scaleX">scaleX</div>
+  <div class="animation-scaleY">scaleY</div>
+  <div class="animation-rotation">rotation</div>
+  <div class="animation-skewX">skewX</div>
+  <div class="animation-skewY">skewY</div>
+  <div class="animation-transformOrigin">transformOrigin?</div>
+  <div class="animation-opacity">opacity</div>
+  <div class="animation-autoAlpha">autoAlpha</div>
+  <div class="animation-repeat-1">repeat-1</div>
+  <div class="animation-yoyo">yoyo?</div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script>
+    { // start
+      gsap.to(".animation-x", { x: 100, });
+      gsap.to(".animation-y", { y: 100, delay: 1 });
+      gsap.to(".animation-xPercent", { xPercent: -50, delay: 2 });
+      gsap.to(".animation-yPercent", { yPercent: -50, delay: 3 });
+      gsap.to(".animation-scale", { scale: 2, delay: 4 });
+      gsap.to(".animation-scaleX", { scaleX: 2, delay: 5 });
+      gsap.to(".animation-scaleY", { scaleY: 2, delay: 6 });
+      gsap.to(".animation-rotation", { rotation: 90, delay: 7 });
+      gsap.to(".animation-skewX", { skewX: 30, delay: 8 });
+      gsap.to(".animation-skewY", { skewY: 30, delay: 9 });
+      gsap.from(".animation-transformOrigin", { transformOrigin: "10% 40%", });
+      gsap.to(".animation-transformOrigin", { x: 100, delay: 10 });
+      gsap.to(".animation-opacity", { opacity: 0, x: 200, duration: 2, delay: 11 });
+      gsap.to(".animation-autoAlpha", { autoAlpha: 0, x: -200, duration: 3, delay: 12 });
+      gsap.to(".animation-repeat-1", { repeat: -1, x: 100, duration: 1 });
+      // yoyoはrepeatないと動かないかも
+      gsap.from(".animation-yoyo", { x: -200 });
+      gsap.to(".animation-yoyo", { yoyo: true, x: 200, duration: 1, repeat: -1 });
+    } // end
+  </script>
+</body>
+
+</html>

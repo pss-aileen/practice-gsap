@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>staggers</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <p>
+    <a href="https://gsap.com/resources/getting-started/Staggers"
+      target="_blank">https://gsap.com/resources/getting-started/Staggers</a>
+  </p>
+
+  <div class="wrapper1">
+    <div class="box orange"></div>
+    <div class="box yellow"></div>
+    <div class="box teal"></div>
+    <div class="box sky"></div>
+    <div class="box indigo"></div>
+  </div>
+
+  <div class="wrapper2">
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+  </div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+  <script>
+    "use strict";
+    { // start
+      gsap.fromTo(".box",
+        {
+          x: -20,
+          // opacity: 0,
+        },
+        {
+          x: 0,
+          rotate: 180,
+          duration: 1,
+          opacity: 1,
+          stagger: 0.1,
+          // delay: 1,
+          ease: "sine.out",
+        }
+      );
+
+      document.querySelectorAll(".box").forEach((box) => {
+        box.addEventListener("click", () => {
+          gsap.to(".box", {
+            y: -40,
+            stagger: 0.1,
+            opacity: 0,
+            ease: "back.in"
+          })
+        });
+      });
+
+      gsap.to(".box2", {
+        duration: 1,
+        scale: 0.1,
+        y: 20,
+        repeat: -1,
+        yoyo: true,
+        ease: "power1.inOut",
+        stagger: {
+          grid: [5, 5],
+          from: "edges",
+          axis: "x",
+          amount: 0.6
+        }
+      });
+    } // end
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>target - const , querySelector, getElementById</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      min-height: 100vh;
+      justify-content: center;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    div {
+      width: 100px;
+      height: 100px;
+    }
+
+    .box {
+      background: red;
+    }
+
+    .circle {
+      border-radius: 50%;
+      background: #249fdd;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="box"></div>
+  <div class="circle"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script>
+    {
+      const box = document.querySelector(".box");
+      const circle = document.querySelector(".circle");
+
+      gsap.to(
+        [box, circle],
+        {
+          x: 200,
+          duration: 3
+        }
+      );
+
+      gsap.to(
+        box,
+        {
+          borderRadius: "50%",
+          backgroundColor: "#249fdd",
+          duration: 3
+        }
+      );
+
+      gsap.to(
+        circle,
+        {
+          borderRadius: "0",
+          backgroundColor: "red",
+          rotation: 360,
+          duration: 3
+        }
+      )
+    }
+  </script>
+</body>
+
+</html>
