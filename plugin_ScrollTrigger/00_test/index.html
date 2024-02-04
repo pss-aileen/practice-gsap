@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScrollTrigger</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- https://gsap.com/docs/v3/Plugins/ScrollTrigger/ -->
+
+  <div class="box red a" style="top: 800px">a</div>
+  <div class="box orange b" style="top: 1600px">b</div>
+  <div class="box amber c" style="top: 2400px">c</div>
+  <div class="box yellow d" style="top: 3600px">d</div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <script>
+    "use strict";
+    { // start
+      gsap.to(".a",
+        {
+          x: 200,
+          rotation: 360,
+          duration: 2,
+        });
+      gsap.to(".b",
+        {
+          x: 200,
+          rotation: 360,
+          duration: 2,
+          scrollTrigger: ".b",
+        });
+      gsap.to(".c",
+        {
+          x: 200,
+          rotation: 360,
+          duration: 2,
+          scrollTrigger: {
+            trigger: ".c",
+            toggleActions: "restart pause reverse pause",
+            start: "50px 80%",
+            end: "50px 20%",
+            scrub: true,
+            markers: true,
+          }
+        });
+      gsap.to(".d",
+        {
+          x: 200,
+          rotation: 360,
+          duration: 2,
+          scrollTrigger: ".d",
+        });
+    } // end
+  </script>
+</body>
+
+</html>
